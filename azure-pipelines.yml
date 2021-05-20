@@ -11,6 +11,7 @@ stages:
   - job: 'Build'
     displayName: 'Build job'
     pool:
+      name: Default
       vmImage: 'ubuntu-18.04'
       demands:
       - npm
@@ -67,6 +68,7 @@ stages:
 
   - job: BuildDacpac
     pool:
+      name: Default
       vmImage: 'windows-2019'
     steps:
     - task: DotNetCoreCLI@2
@@ -100,6 +102,7 @@ stages:
   jobs:
   - deployment: DBAVerificationScript
     pool:
+      name: Default
       vmImage: 'windows-2019'
     variables:
     - group: 'Release'
@@ -138,6 +141,7 @@ stages:
   jobs:
   - deployment: DBAVerificationApply
     pool:
+      name: Default
       vmImage: 'windows-2019'
     variables:
     - group: 'Release'
@@ -169,6 +173,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
+      name: Default
       vmImage: 'ubuntu-18.04'
     environment: dev
     variables:
@@ -192,6 +197,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
+      name: Default
       vmImage: 'ubuntu-18.04'
     environment: test
     variables:
@@ -215,6 +221,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
+      name: Default
       vmImage: 'ubuntu-18.04'
     environment: staging
     variables:
